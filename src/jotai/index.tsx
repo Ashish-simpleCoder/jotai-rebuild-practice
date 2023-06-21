@@ -49,7 +49,7 @@ export function useAtom<AtomType>(atom: Atom<AtomType>): [AtomType, DispatchAtom
          atom.set(cb)
       }
    }
-   return [useSyncExternalStore(atom.subscribe, atom.get), setter]
+   return [useAtomValue(atom), setter]
 }
 export function useAtomValue<AtomType>(atom: Atom<AtomType>): AtomType {
    return useSyncExternalStore(atom.subscribe, atom.get)
